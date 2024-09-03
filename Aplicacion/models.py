@@ -15,8 +15,7 @@ class Disco(models.Model):
     Publicacion =  models.DateField() 
     Estudio = models.CharField(max_length=40,null=True, blank=True)
     Discografica = models.CharField(max_length=40,null=True, blank=True)
-    Duración = models.PositiveIntegerField(help_text="Duración en minutos",null=True, blank=True)
-    imagen = models.ImageField(upload_to='disco_img/', null=True, blank=True)
+    Imagen = models.ImageField(upload_to='disco_img/', null=True, blank=True)
     Genero = models.ForeignKey(Genero, on_delete=models.PROTECT)
 
     def __str__(self):
