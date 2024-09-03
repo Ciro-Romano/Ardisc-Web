@@ -1,12 +1,35 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ardisc</title>
+    <title>{% block title %} Ardisc {% endblock %}</title>
 </head>
+
 <body>
     <h2> Ardisc </h2>
-    <p> ¡disco de musica, para eschucar y analizar chabon!</p>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark py-2 fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"> menu de interaccion </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Inicio' %}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Discos' %}">Discos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'About' %}">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <p> ¡discos para escuchar y analizar, chabon! </p>
 </body>
+
+{% block '' %}
+
+{% endblock %}
+
 </html>
