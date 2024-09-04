@@ -21,4 +21,19 @@ class Disco(models.Model):
     def __str__(self):
         return f"{self.Titulo} - {self.Artista}"
 
+Tipo_de_consulta = [
+    [0, 'Consulta'],
+    [1, 'Sugerencia'],
+    [2, 'Otro'],
+]
 
+class Contacto(models.Model):
+    Nombre = models.CharField(max_length=30)
+    Email = models.EmailField()
+    Tipo = models.IntegerField(choices=Tipo_de_consulta)
+    Mensaje = models.TextField()
+    Fecha = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.Nombre} - {self.Tipo} - {self.Fecha}"
+    

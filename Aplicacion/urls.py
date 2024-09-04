@@ -8,6 +8,8 @@ urlpatterns = [
     path('', views.Inicio, name='Inicio'),
     path('Discos/', views.Discos, name='Discos'),
     path('About/', views.About, name='About'),
+    path('Contacto/', views.Contacto, name='Contacto'),
+    path('Consulta-envida', views.Consulta_enviada, name="Consulta-Enviada")
 ]
 
 if settings.DEBUG:
