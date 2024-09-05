@@ -3,6 +3,7 @@
 {% block title %} Discos {% endblock %}
 
 {% block '' %}
+<br>
 <h2>Lista de Discos</h2>
 <div class="discos-container">
     {% for disco in discos %}
@@ -12,7 +13,6 @@
             {% else %}
                 <p>No hay imagen disponible</p>
             {% endif %}
-            
             <h3>{{ disco.titulo }}</h3>
             <p><b>Artista:</b> {{ disco.Artista }}</p>
             <p><b>Descripción:</b> {{ disco.Descripcion }}</p>
