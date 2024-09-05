@@ -9,7 +9,10 @@ urlpatterns = [
     path('Discos/', views.Discos, name='Discos'),
     path('About/', views.About, name='About'),
     path('Contacto/', views.Contacto, name='Contacto'),
-    path('Consulta-envida', views.Consulta_enviada, name="Consulta-Enviada")
+    path('Consulta-envida/', views.Consulta_enviada, name="Consulta-Enviada"),
+    path('Agregar-Disco/', views.AgregarDisco, name="Agregar-Disco"),
+    path('Disco-Agregado/', views.Disco_agregado, name='Disco-Agregado'),
+    path('Lista-Disco/', views.Lista_disco, name='Lista-Disco'),
 ]
 
 if settings.DEBUG:

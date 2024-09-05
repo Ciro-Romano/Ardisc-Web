@@ -6,51 +6,25 @@
 <br>
 <h2>Lista de Discos</h2>
 <div class="discos-container">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="{% url 'Lista-Disco' %}">Lista</a></li>
+    </ul>
     {% for disco in discos %}
-        <div class="disco">
-            {% if disco.Imagen %}
-                <img src="{{ disco.Imagen.url }}" alt="Portada de {{ disco.titulo }}" class="disco-imagen">
-            {% else %}
-                <p>No hay imagen disponible</p>
-            {% endif %}
-            <h3>{{ disco.titulo }}</h3>
-            <p><b>Artista:</b> {{ disco.Artista }}</p>
-            <p><b>Descripción:</b> {{ disco.Descripcion }}</p>
-            <p><b>Estudio:</b> {{ disco.Estudio|default:"Sin Información" }}</p>
-            <p><b>Discográfica:</b> {{ disco.Discografica|default:"Sin Información" }}</p>
-            <p><b>Género:</b> {{ disco.Genero.Nombre }}</p>
-        </div>
+    <div class="disco">
+        {% if disco.Imagen %}
+        <img src="{{ disco.Imagen.url }}" alt="Portada de {{ disco.titulo }}" class="disco-imagen">
+        {% else %}
+        <p>No hay imagen disponible</p>
+        {% endif %}
+        <h3>{{ disco.titulo }}</h3>
+        <p><b>Artista:</b> {{ disco.Artista }}</p>
+        <p><b>Descripción:</b> {{ disco.Descripcion }}</p>
+        <p><b>Estudio:</b> {{ disco.Estudio|default:"Sin Información" }}</p>
+        <p><b>Discográfica:</b> {{ disco.Discografica|default:"Sin Información" }}</p>
+        <p><b>Género:</b> {{ disco.Genero.Nombre }}</p>
+    </div>
     {% endfor %}
 </div>
-<style>
-    .discos-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-    
-    .disco {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 16px;
-        width: 250px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        text-align: center;
-    }
-    
-    .disco-imagen {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
-    
-    .disco h3 {
-        font-size: 1.2em;
-        margin: 10px 0;
-    }
-    
-    .disco p {
-        margin: 8px 0;
-    }
-</style>
+
 {% endblock %}
+
