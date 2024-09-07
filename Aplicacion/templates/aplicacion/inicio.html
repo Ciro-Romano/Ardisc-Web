@@ -11,78 +11,81 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            color: #000000;
-            background: linear-gradient(135deg, #666565, #c7baba);
-            padding-top: 56px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #000000;
-            margin: 40px 0;
-            font-size: 2.5rem;
-            font-weight: bold;
+            background-color: #3b666c22;
+            /* Cambia este valor al color que prefieras */
         }
 
         .discos-container {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            /* Espacio entre los bloques */
+            padding: 20px;
             justify-content: center;
-            padding: 0 20px;
+            /* Centra los bloques en el contenedor */
         }
 
         .disco {
-            background: #ffffff;
-            border-radius: 12px;
+            width: 300px;
+            /* Ancho fijo para los bloques */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            padding: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 280px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s;
+            box-sizing: border-box;
         }
 
         .disco:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         .disco-imagen {
-            max-width: 100%;
+            width: 100%;
             height: auto;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            border-radius: 5px;
         }
 
         .disco h3 {
-            margin: 15px 0;
-            color: #4a90e2;
-            font-size: 1.4rem;
+            margin: 10px 0 5px;
+            font-size: 1.2em;
+            color: #333;
         }
 
         .disco p {
             margin: 5px 0;
             color: #666;
-            font-size: 0.9rem;
         }
 
-        .disco p b {
-            color: #333;
+        .navbar-container {
+            margin-bottom: 20px;
+            text-align: center;
         }
 
         .navbar-nav {
-            margin-bottom: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .navbar-nav .nav-link {
-            color: #ffffff;
-            font-weight: 500;
-            transition: color 0.3s ease;
+        .nav-item {
+            display: inline;
         }
 
-        .navbar-nav .nav-link:hover {
-            color: #000000;
+        .nav-link {
+            text-decoration: none;
+            color: #121212;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 4px;
+            background-color: #cacaca;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .nav-link:hover {
+            background-color: #d0d0d0;
+            color: #b64242;
         }
     </style>
 </head>

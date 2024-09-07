@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_list_or_404
 from django.views.decorators.csrf import csrf_protect
 from .models import Genero, Disco
 from . forms import ContactoFormulario, DiscoFormulario
@@ -47,4 +47,16 @@ def Lista_disco(request):
     disco = Disco.objects.all()
     return render(request, 'aplicacion/crud/lista.html', {'disco': disco})
 
+def Editar_Disco(request, id):
+    disco = Disco.objects.get(id=id)
+    formulario = DiscoFormulario(instance=disco)
+    if request.method == 'POST':
+        formulario = DiscoFormulario(data=request.POST, instance=disco, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('Disco-Editado')
+    {'formulario' : formulario}
+    return render(request, 'aplicacion/crud/editar.html', {'formulario': formulario})
 
+def Disco_Editado(request):
+    return render(request, 'aplicacion/Exito/disco-editado.html')

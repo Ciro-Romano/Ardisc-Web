@@ -13,6 +13,8 @@ urlpatterns = [
     path('Agregar-Disco/', views.AgregarDisco, name="Agregar-Disco"),
     path('Disco-Agregado/', views.Disco_agregado, name='Disco-Agregado'),
     path('Lista-Disco/', views.Lista_disco, name='Lista-Disco'),
+    path('Editar-Disco/<id>/', views.Editar_Disco, name="Editar-Disco"),
+    path('Disco-Editado/', views.Disco_Editado, name='Disco-Editado'),
 ]
 
 if settings.DEBUG:

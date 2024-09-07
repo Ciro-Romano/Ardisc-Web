@@ -3,25 +3,24 @@
 {% block title %} Lista {% endblock %}
 
 {% block '' %}
-
 <body>
     <div class="container">
         <br><br><br><br>
         <h1>Lista de Discos</h1>
         <ul>
-            {% for disc in disco %}
-            <li>
-                Titulo: {{ disc.Titulo }}
-
-                Artista: {{ disc.Artista }}
-
-                Género: {{ disc.Genero }}
-            </li>
-            {% empty %}
-            <li>No hay discos disponibles.</li>
-            {% endfor %}
+            {% if disco %}
+                {% for disc in disco %}
+                <li>
+                    Título: {{ disc.Titulo }}<br>
+                    Artista: {{ disc.Artista }}<br>
+                    Género: {{ disc.Genero }}<br>
+                    <a href="{% url 'Editar-Disco' disc.id %}">Modificar</a>
+                </li>
+                {% endfor %}
+            {% else %}
+                <li>No hay discos disponibles.</li>
+            {% endif %}
         </ul>
+    </div>
 </body>
-
-</head>
 {% endblock %}

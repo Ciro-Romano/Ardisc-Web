@@ -1,0 +1,26 @@
+{% extends 'aplicacion/inicio.html' %} {% load static %}
+
+{% block title %} Editar {% endblock %}
+
+{% block '' %}
+<br>
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h2> ¡Edicion! </h2>
+                <form action="" method="post">
+                    <hr>
+                    {% csrf_token %}
+                    {{ formulario }}
+                    <div class="d-flex justify-contend-end">
+                        <input type="reset" value="Cancelar" class="btn btn-secondary">
+                        &nbsp;
+                        <button type="submit" value="Editar" class="btn btn-primary">Editar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

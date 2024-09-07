@@ -3,12 +3,16 @@
 {% block title %} Discos {% endblock %}
 
 {% block '' %}
-<br>
-<h2>Lista de Discos</h2>
+
+<div class="navbar-container"></div>
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'Lista-Disco' %}">Lista</a>
+    </li>
+</ul>
+</div>
+
 <div class="discos-container">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a class="nav-link" href="{% url 'Lista-Disco' %}">Lista</a></li>
-    </ul>
     {% for disco in discos %}
     <div class="disco">
         {% if disco.Imagen %}
@@ -23,8 +27,8 @@
         <p><b>Discográfica:</b> {{ disco.Discografica|default:"Sin Información" }}</p>
         <p><b>Género:</b> {{ disco.Genero.Nombre }}</p>
     </div>
+    {% empty %}
+    <p>No hay discos disponibles.</p>
     {% endfor %}
 </div>
-
 {% endblock %}
-
