@@ -3,18 +3,22 @@
 {% block title %} Login {% endblock title %}
 
 {% block '' %}
-    <div class="d-flex justify-content-center">
-        <div class="d-flex flex-column">
-            <p class="fs-5 fw-bold">{{ msg_login }}</p>
 
-            <form action="" method="POST">
-                {% csrf_token %}
-                
-                {{ form.as_p }}
-                <input type="submit" value="Iniciar sesión">
 
-            </form>
+<div class="d-flex justify-content-center">
+    <div class="d-flex flex-column">
+        <p class="fs-5 fw-bold">{{ msg_login }}</p>
 
-        </div>
+        <h1>Iniciar sesion</h1>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+            <input type="submit" value="Iniciar sesión">
+
+        </form>
+
     </div>
-{% endblock  %}
+</div>
+{% endblock %}

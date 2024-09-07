@@ -2,8 +2,13 @@ from django.shortcuts import render,redirect, get_list_or_404 , get_object_or_40
 from django.views.decorators.csrf import csrf_protect
 from .models import Genero, Disco
 from . forms import ContactoFormulario, DiscoFormulario
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 # Create your views here.
+
+def is_admin(user):
+    return user.is_superuser 
+
+
 def Inicio(request):
     return render(request, 'aplicacion/inicio.html')
 
@@ -33,6 +38,7 @@ def Consulta_enviada(request):
     return render(request, 'aplicacion/Exito/consulta-enviada.html')
 
 @login_required
+@user_passes_test(is_admin)
 def AgregarDisco(request):
     if request.method == 'POST':
         formulario = DiscoFormulario(request.POST)
@@ -54,6 +60,7 @@ def Lista_disco(request):
     return render(request, 'aplicacion/crud/lista.html', {'disco': disco})
 
 @login_required
+@user_passes_test(is_admin)
 def Editar_Disco(request, id):
     disco = Disco.objects.get(id=id)
     formulario = DiscoFormulario(instance=disco)
@@ -70,6 +77,7 @@ def Disco_Editado(request):
     return render(request, 'aplicacion/Exito/disco-editado.html')
 
 @login_required
+@user_passes_test(is_admin)
 def Eliminar_Disco(request, id):
     disco = get_object_or_404(Disco, id=id)
 
