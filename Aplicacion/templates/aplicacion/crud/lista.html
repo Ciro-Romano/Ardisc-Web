@@ -15,6 +15,7 @@
                     Artista: {{ disc.Artista }}<br>
                     Género: {{ disc.Genero }}<br>
                     <a href="{% url 'Editar-Disco' disc.id %}">Modificar</a>
+                    <a href="{% url 'Eliminar-Disco' disc.id %}">Eliminar</a>
                 </li>
                 {% endfor %}
             {% else %}

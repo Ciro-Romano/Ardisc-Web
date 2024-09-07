@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect, get_list_or_404
+from django.shortcuts import render,redirect, get_list_or_404 , get_object_or_404
 from django.views.decorators.csrf import csrf_protect
 from .models import Genero, Disco
 from . forms import ContactoFormulario, DiscoFormulario
@@ -60,3 +60,14 @@ def Editar_Disco(request, id):
 
 def Disco_Editado(request):
     return render(request, 'aplicacion/Exito/disco-editado.html')
+
+def Eliminar_Disco(request, id):
+    disco = get_object_or_404(Disco, id=id)
+
+    if request.method == 'POST':
+        disco.delete()
+        return redirect('Disco-Eliminado')
+    return render(request, 'aplicacion/Confirmar/confirmar.html', {'disco': disco})
+
+def Disco_eliminado(request):
+    return render(request, 'aplicacion/Exito/disco-eliminado.html')
